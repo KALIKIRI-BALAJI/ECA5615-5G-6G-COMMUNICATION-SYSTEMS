@@ -1,1 +1,14 @@
-
+clc;
+clear;
+close all;
+% Main Lobe Directions (degrees)
+theta = [-60 -30 0 30 60];
+% Constant Normalized Gain
+gain = [1 1 1 1 1];
+% Create Polar Plot
+figure;
+polarplot(deg2rad(theta), gain, 'o-', ...
+'LineWidth', 2, ...
+'MarkerSize', 8);
+title('Main Lobe Direction in Analog Beamforming');
+rlim([0 1.2]);
