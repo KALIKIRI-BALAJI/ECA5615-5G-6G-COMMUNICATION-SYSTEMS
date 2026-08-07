@@ -1,1 +1,26 @@
-
+clc;
+clear;
+close all;
+% Number of Antenna Elements
+antennas = [2 4 8 16 32];
+% Beam Width (degrees)
+beamwidth = [90 45 22.5 11.25 5.625];
+% Create Figure
+figure;
+% Plot Beam Width
+plot(antennas, beamwidth, 'o-', ...
+'LineWidth', 2, ...
+'MarkerSize', 8, ...
+'MarkerFaceColor', 'b');
+% Labels and Title
+xlabel('Number of Antenna Elements');
+ylabel('Beam Width (Degrees)');
+title('Beam Width for Different Antenna Array Sizes');
+% Grid
+grid on;
+% Display values above each point
+for i = 1:length(antennas)
+text(antennas(i), beamwidth(i)+2, sprintf('%.3f', beamwidth(i)), ...
+'HorizontalAlignment', 'center', ...
+'FontWeight', 'bold');
+end
