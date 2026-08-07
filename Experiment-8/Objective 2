@@ -1,1 +1,17 @@
-
+clc;
+clear;
+close all;
+% Steering Angles (degrees)
+angle = [-60 -30 0 30 60];
+% Normalized Gain
+gain = ones(size(angle));
+% Create Polar Plot
+figure;
+polarplot(deg2rad(angle), gain, 'o-', ...
+'LineWidth', 2, ...
+'MarkerSize', 8);
+title('Steering Angle Variation in MIMO Beamforming');
+% Set radial axis limits
+rlim([0 1.2]);
+% Add grid
+grid on;
