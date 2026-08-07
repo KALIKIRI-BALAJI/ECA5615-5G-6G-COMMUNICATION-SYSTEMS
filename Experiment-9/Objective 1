@@ -1,1 +1,22 @@
-
+clc;
+clear;
+close all;
+% SNR values in dB
+snr = 0:5:30;
+% Convert SNR from dB to linear scale
+snr_linear = 10.^(snr/10);
+% Calculate Shannon Channel Capacity
+capacity = log2(1 + snr_linear);
+% Plot Channel Capacity
+figure;
+plot(snr, capacity, '-o', ...
+'LineWidth', 2, ...
+'MarkerSize', 7, ...
+'MarkerFaceColor', 'b');
+grid on;
+xlabel('SNR (dB)', 'FontSize', 12, 'FontWeight', 'bold');
+ylabel('Channel Capacity (bps/Hz)', 'FontSize', 12, 'FontWeight', 'bold');
+title('Channel Capacity vs SNR', 'FontSize', 14, 'FontWeight', 'bold');
+xlim([0 30]);
+ylim([0 11]);
+set(gca, 'FontSize', 12);
