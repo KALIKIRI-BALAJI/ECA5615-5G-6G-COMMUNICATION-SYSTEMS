@@ -1,1 +1,18 @@
-
+clc;
+clear;
+close all;
+% Number of antenna elements
+antennas = [4 8 16 32 64];
+% Antenna Gain (dB)
+gain = 10*log10(antennas);
+% Create Bar Chart
+figure;
+bar(antennas, gain);
+grid on;
+xlabel('Number of Antenna Elements', ...
+'FontSize', 12, 'FontWeight', 'bold');
+ylabel('Antenna Gain (dB)', ...
+'FontSize', 12, 'FontWeight', 'bold');
+title('Antenna Gain for Different Antenna Array Sizes', ...
+'FontSize', 14, 'FontWeight', 'bold');
+set(gca,'FontSize',12);
