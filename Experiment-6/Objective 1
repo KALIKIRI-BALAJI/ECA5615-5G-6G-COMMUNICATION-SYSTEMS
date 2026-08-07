@@ -1,1 +1,20 @@
-
+clc;
+clear;
+close all;
+% Numerology Index (μ)
+mu = 0:4;
+% Subcarrier Spacing (kHz)
+scs = [15 30 60 120 240];
+% Create Figure
+figure;
+% Bar Graph
+bar(mu, scs, 'FaceColor', [0.2 0.6 0.8]);
+% Labels and Title
+xlabel('Numerology Index (\mu)');
+ylabel('Subcarrier Spacing (kHz)');
+title('5G NR Subcarrier Spacing for Different Numerologies');
+% Grid
+grid on;
+% Set x-axis ticks
+xticks(mu);
+xticklabels({'0','1','2','3','4'});
