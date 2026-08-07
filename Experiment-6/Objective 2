@@ -1,1 +1,29 @@
+clc;
+clear;
+close all;
+% Subcarrier Spacing (kHz)
+scs = [15 30 60 120 240];
+% Slot Duration (ms)
+slot = [1 0.5 0.25 0.125 0.0625];
+% Create Figure
+figure;
+% Plot
+plot(scs, slot, 'o-', ...
+'LineWidth', 2, ...
+'MarkerSize', 8, ...
+'MarkerFaceColor', 'b');
+% Labels and Title
+xlabel('Subcarrier Spacing (kHz)');
+ylabel('Slot Duration (ms)');
+title('5G NR Slot Duration for Different Subcarrier Spacing');
+% Grid
+grid on;
+% Set x-axis ticks
+xticks(scs);
+% Display values on graph
+for i = 1:length(scs)
+text(scs(i), slot(i), sprintf('%.4f', slot(i)), ...
+'VerticalAlignment', 'bottom', ...
+'HorizontalAlignment', 'center');
+end
 
