@@ -1,1 +1,26 @@
+clc;
+clear;
+close all;
+% Subcarrier Spacing (kHz)
+scs = [15 30 60 120 240];
+% Number of OFDM Symbols per Slot (Normal Cyclic Prefix)
+symbols = [14 14 14 14 14];
+% Create Figure
+figure;
+% Bar Chart
+bar(scs, symbols, 'FaceColor', [0.2 0.6 0.8]);
+% Labels and Title
+xlabel('Subcarrier Spacing (kHz)');
+ylabel('Number of OFDM Symbols');
+title('OFDM Symbols per Slot for Different Subcarrier Spacing');
+% Grid
+grid on;
+% Set y-axis limit
+ylim([0 16]);
+% Display values on top of each bar
+for i = 1:length(scs)
+text(scs(i), symbols(i)+0.2, num2str(symbols(i)), ...
+'HorizontalAlignment', 'center', ...
+'FontWeight', 'bold');
+end
 
