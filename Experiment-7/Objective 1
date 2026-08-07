@@ -1,1 +1,24 @@
+clc;
+clear;
+close all;
+% Number of Antenna Elements
+antennas = [2 4 8 16 32];
+% Beamforming Gain (dB)
+gain = 10 * log10(antennas);
+% Create Figure
+figure;
+% Bar Chart
+bar(antennas, gain, 'FaceColor', [0.2 0.7 0.5]);
+% Labels and Title
+xlabel('Number of Antenna Elements');
+ylabel('Beamforming Gain (dB)');
+title('Beamforming Gain for Different Antenna Array Sizes');
+% Grid
+grid on;
+% Display values above each bar
+for i = 1:length(antennas)
+text(antennas(i), gain(i)+0.2, sprintf('%.2f', gain(i)), ...
+'HorizontalAlignment', 'center', ...
+'FontWeight', 'bold');
+end
 
