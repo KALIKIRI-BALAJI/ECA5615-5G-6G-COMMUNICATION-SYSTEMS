@@ -1,1 +1,44 @@
-
+clc;
+clear;
+close all;
+%% OFDMA Resource Allocation Parameters
+% Bandwidth of one Resource Block (RB)
+rb_bw = 180e3;      % 180 kHz
+% Number of users
+users = 1:5;
+% Resource Blocks allocated to each user
+alloc_RB = [10 12 8 15 5];
+% Modulation efficiency (bits/symbol)
+% QPSK = 2, 16-QAM = 4, 64-QAM = 6
+mod_eff = [2 4 6 4 2];
+%% Throughput Calculation
+% Throughput in Mbps
+throughput = (alloc_RB .* rb_bw .* mod_eff) / 1e6;
+%% Display Results
+fprintf('-------------------------------------------\n');
+fprintf(' User   RBs   Modulation(bits)  Throughput(Mbps)\n');
+fprintf('-------------------------------------------\n');
+for i = 1:length(users)
+fprintf('  %d      %2d          %d              %.2f\n', ...
+users(i), alloc_RB(i), mod_eff(i), throughput(i));
+end
+fprintf('-------------------------------------------\n');
+%% Plot Graphs
+figure('Color','w');
+% Graph 1: Throughput per User
+subplot(2,1,1)
+bar(users, throughput, 'FaceColor', [0 0.4470 0.7410])
+title('OFDMA User Throughput')
+xlabel('User Index')
+ylabel('Throughput (Mbps)')
+grid on
+% Graph 2: Resource Blocks vs Throughput
+subplot(2,1,2)
+plot(alloc_RB, throughput, '-o', ...
+'LineWidth', 2, ...
+'MarkerSize', 8, ...
+'Color', 'r')
+title('Resource Blocks vs Throughput')
+xlabel('Allocated Resource Blocks')
+ylabel('Throughput (Mbps)')
+grid on
