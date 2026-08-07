@@ -1,1 +1,25 @@
-
+clc;
+clear;
+close all;
+% Desired Steering Angles (degrees)
+desired = [-60 -30 0 30 60];
+% Actual Beam Directions (degrees)
+actual = [-58 -32 1 29 62];
+% Calculate Beam Direction Error
+error = abs(desired - actual);
+% Plot Beam Direction Error
+figure;
+plot(desired, error, 'o-', ...
+'LineWidth', 2, ...
+'MarkerSize', 8, ...
+'MarkerFaceColor', 'b');
+grid on;
+xlabel('Desired Steering Angle (Degrees)', ...
+'FontSize', 12, 'FontWeight', 'bold');
+ylabel('Beam Direction Error (Degrees)', ...
+'FontSize', 12, 'FontWeight', 'bold');
+title('Beam Direction Error for Different Steering Angles', ...
+'FontSize', 14, 'FontWeight', 'bold');
+xlim([-70 70]);
+ylim([0 5]);
+set(gca, 'FontSize', 12);
