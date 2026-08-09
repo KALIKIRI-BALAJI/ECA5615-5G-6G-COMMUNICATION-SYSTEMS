@@ -1,1 +1,23 @@
-
+clc;
+clear;
+close all;
+users = 10:10:100;
+bandwidth = 20;
+snr = 15;
+interference = 0.08*users;
+sinr = snr./(1 + interference);
+efficiency = log2(1 + sinr);
+throughput = bandwidth*efficiency;
+figure;
+subplot(2,1,1);
+plot(users,efficiency,'-o','LineWidth',2,'MarkerSize',6);
+grid on;
+xlabel('Number of Users');
+ylabel('Spectrum Efficiency (bps/Hz)');
+title('Spectrum Efficiency in Dense Communication Zones');
+subplot(2,1,2);
+plot(users,throughput,'-s','LineWidth',2,'MarkerSize',6);
+grid on;
+xlabel('Number of Users');
+ylabel('Throughput (Mbps)');
+title('Network Throughput in Dense Communication Zones');
