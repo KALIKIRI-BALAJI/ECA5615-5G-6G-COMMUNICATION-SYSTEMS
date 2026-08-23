@@ -1,1 +1,27 @@
-
+clc;
+clear;
+close all;
+% Vehicle IDs
+vehicle = 1:6;
+% Vehicle Speed (km/h)
+speed = [30 45 60 75 90 105];
+% Communication Range (m)
+range = [280 260 240 220 200 180];
+% Display results
+disp('Vehicle   Speed(km/h)   Communication Range(m)');
+disp([vehicle' speed' range']);
+figure;
+% -------- Graph 1: Vehicle Speed --------
+subplot(2,1,1);
+plot(vehicle, speed, '-o', 'LineWidth', 2);
+grid on;
+title('Vehicle Speed of Different Vehicles');
+xlabel('Vehicle Index');
+ylabel('Vehicle Speed (km/h)');
+% -------- Graph 2: Speed vs Communication Range --------
+subplot(2,1,2);
+plot(speed, range, '-s', 'LineWidth', 2);
+grid on;
+title('Vehicle Speed vs Communication Range');
+xlabel('Vehicle Speed (km/h)');
+ylabel('Communication Range (m)');
